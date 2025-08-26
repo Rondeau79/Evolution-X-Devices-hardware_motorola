@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2016 The CyanogenMod Project
- * Copyright (c) 2017-2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.device;
+package com.moto.actions;
 
 import android.os.Bundle;
 
@@ -26,10 +25,9 @@ public class ActionsPreferenceActivity extends CollapsingToolbarBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getFragmentManager()
-                .beginTransaction()
-                .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame,
-                        new ActionsPreferenceFragment())
-                .commit();
+        if (savedInstanceState == null){
+            getFragmentManager().beginTransaction()
+	            .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, new ActionsPreferenceFragment()).commit();
+        }
     }
 }
